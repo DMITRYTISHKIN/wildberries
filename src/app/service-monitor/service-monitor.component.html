@@ -1,0 +1,37 @@
+<div class="grid-container">
+  <h2>Мониторинг сервисов</h2>
+  <dx-data-grid
+    keyExpr="ID"
+    [dataSource]="dataSource"
+    [showColumnLines]="false"
+    [showRowLines]="false"
+    [showBorders]="false"
+    [rowAlternationEnabled]="true"
+    (onRowUpdated)="onRowUpdated($event)"
+    (onInitialized)="onInitialized($event)"
+  >
+    <dxo-scrolling mode="virtual"></dxo-scrolling>
+    <dxo-load-panel
+      [enabled]="true">
+    </dxo-load-panel>
+
+    <dxo-grouping
+      [contextMenuEnabled]="true">
+    </dxo-grouping>
+    <dxo-group-panel
+      [visible]="true">
+    </dxo-group-panel>
+
+    <dxi-column dataField="STATUS" caption="Состояние" [width]="100"></dxi-column>
+    <dxi-column dataField="NAME" caption="Название"></dxi-column>
+    <dxi-column dataField="TAG" caption="Тег"></dxi-column>
+    <dxi-column dataField="VERSION" caption="Версия"></dxi-column>
+
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="[10, 25, 50, 100]"
+    ></dxo-pager>
+
+  </dx-data-grid>
+</div>
